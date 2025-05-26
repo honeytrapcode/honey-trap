@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honey Trap - You Never Hear The Javelin That Kills You</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Old+Standard+TT:wght@400;700&display=swap');
         
         * {
             margin: 0;
@@ -14,51 +14,22 @@
         }
         
         :root {
-            --honey: #FFB627;
-            --dark-honey: #E6A623;
-            --black: #1a1a1a;
-            --white: #ffffff;
-            --cream: #FFF8E7;
-            --gold: #D4AF37;
+            --cream: #F7F3E9;
+            --dark-brown: #3C2A1E;
+            --warm-brown: #8B6F47;
+            --gold: #B8860B;
+            --black: #1C1C1C;
+            --paper: #FAF7F0;
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--black) 0%, #2a2a2a 100%);
-            color: var(--white);
-            overflow-x: hidden;
-        }
-        
-        /* Animated background hexagons */
-        .hex-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-        
-        .hex {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: var(--honey);
-            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .hex:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .hex:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
-        .hex:nth-child(3) { top: 50%; left: 5%; animation-delay: 2s; }
-        .hex:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 3s; }
-        .hex:nth-child(5) { bottom: 10%; left: 20%; animation-delay: 4s; }
-        .hex:nth-child(6) { top: 60%; right: 5%; animation-delay: 5s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            font-family: 'Crimson Text', serif;
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(60, 42, 30, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 111, 71, 0.03) 0%, transparent 50%);
         }
         
         /* Navigation */
@@ -66,71 +37,47 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 50px;
-            background: rgba(26, 26, 26, 0.9);
-            backdrop-filter: blur(10px);
+            background-color: rgba(247, 243, 233, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--warm-brown);
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        nav.scrolled {
-            padding: 15px 50px;
-            background: rgba(26, 26, 26, 0.95);
+            padding: 15px 0;
         }
         
         .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 0 30px;
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--honey);
+            font-family: 'Old Standard TT', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-brown);
             text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .logo:hover {
-            color: var(--gold);
-            text-shadow: 0 0 20px var(--honey);
+            letter-spacing: 2px;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 40px;
         }
         
         .nav-links a {
-            color: var(--white);
+            color: var(--dark-brown);
             text-decoration: none;
-            font-weight: 300;
-            transition: all 0.3s ease;
-            position: relative;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
         }
         
         .nav-links a:hover {
-            color: var(--honey);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--honey);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
+            color: var(--gold);
         }
         
         /* Hero Section */
@@ -140,354 +87,244 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            background: radial-gradient(circle at center, rgba(255, 182, 39, 0.1) 0%, transparent 70%);
+            background: linear-gradient(135deg, var(--paper) 0%, var(--cream) 100%);
         }
         
         .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-            animation: fadeInUp 1.2s ease-out;
+            max-width: 600px;
+            padding: 0 30px;
         }
         
         .band-name {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--honey), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
+            font-family: 'Old Standard TT', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark-brown);
+            letter-spacing: 3px;
         }
         
         .album-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: var(--cream);
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--warm-brown);
             font-style: italic;
+            line-height: 1.4;
         }
         
         .hero-subtitle {
             font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-            font-weight: 300;
+            color: var(--warm-brown);
+            margin-bottom: 50px;
+            font-weight: 400;
         }
         
         .cta-button {
             display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, var(--honey), var(--gold));
-            color: var(--black);
+            padding: 15px 35px;
+            background-color: var(--dark-brown);
+            color: var(--cream);
             text-decoration: none;
-            font-weight: 500;
-            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid var(--dark-brown);
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 182, 39, 0.3);
+            font-size: 16px;
+            letter-spacing: 1px;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 182, 39, 0.5);
-            background: linear-gradient(45deg, var(--gold), var(--honey));
+            background-color: transparent;
+            color: var(--dark-brown);
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Sections */
-        section {
-            padding: 100px 50px;
-            max-width: 1200px;
+        /* Album Section */
+        .album-section {
+            padding: 100px 30px;
+            max-width: 900px;
             margin: 0 auto;
+            text-align: center;
         }
         
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
+            font-family: 'Old Standard TT', serif;
+            font-size: 36px;
             font-weight: 700;
-            margin-bottom: 50px;
-            text-align: center;
-            color: var(--honey);
+            margin-bottom: 60px;
+            color: var(--dark-brown);
+            letter-spacing: 1px;
+        }
+        
+        .album-announcement {
+            background-color: var(--paper);
+            border: 2px solid var(--warm-brown);
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(60, 42, 30, 0.1);
+        }
+        
+        .album-art-placeholder {
+            width: 200px;
+            height: 200px;
+            background-color: var(--dark-brown);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--warm-brown);
+        }
+        
+        .album-art-placeholder span {
+            font-size: 48px;
+            color: var(--gold);
+        }
+        
+        .album-announcement h3 {
+            font-family: 'Old Standard TT', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-brown);
+            line-height: 1.3;
+        }
+        
+        .album-meta {
+            font-size: 16px;
+            color: var(--warm-brown);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .album-description {
+            font-size: 18px;
+            color: var(--dark-brown);
+            margin-bottom: 30px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .notify-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+        
+        .notify-button:hover {
+            background-color: transparent;
+            color: var(--gold);
         }
         
         /* About Section */
         .about {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            margin: 50px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 182, 39, 0.1);
+            background-color: var(--paper);
+            padding: 100px 30px;
+            border-top: 1px solid var(--warm-brown);
+            border-bottom: 1px solid var(--warm-brown);
         }
         
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
         }
         
         .about-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .about-visual {
-            position: relative;
-            height: 400px;
-            background: linear-gradient(45deg, var(--honey), var(--gold));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 120px;
-            overflow: hidden;
-        }
-        
-        .bee-icon {
-            animation: buzz 2s ease-in-out infinite;
-        }
-        
-        @keyframes buzz {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(5px) translateY(-5px); }
-            75% { transform: translateX(-5px) translateY(5px); }
-        }
-        
-        /* Music Section */
-        .music-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .album-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 182, 39, 0.1);
-        }
-        
-        .album-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 182, 39, 0.1);
-            box-shadow: 0 20px 40px rgba(255, 182, 39, 0.2);
-        }
-        
-        .album-art {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, var(--honey), var(--gold));
-            border-radius: 15px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .album-art::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(0, 0, 0, 0.1) 10px,
-                rgba(0, 0, 0, 0.1) 20px
-            );
-        }
-        
-        .album-title-card {
-            font-family: 'Playfair Display', serif;
             font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--honey);
-        }
-        
-        /* Merch Section */
-        .merch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .merch-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 182, 39, 0.1);
-        }
-        
-        .merch-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 182, 39, 0.1);
-        }
-        
-        .merch-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, var(--black), #333);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            color: var(--honey);
-        }
-        
-        .merch-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-        
-        .merch-price {
-            font-size: 20px;
-            color: var(--honey);
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .buy-button {
-            padding: 10px 25px;
-            background: var(--honey);
-            color: var(--black);
-            border: none;
-            border-radius: 25px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .buy-button:hover {
-            background: var(--gold);
-            transform: translateY(-2px);
+            color: var(--dark-brown);
+            line-height: 1.7;
+            margin-bottom: 40px;
         }
         
         /* Contact Section */
         .contact {
+            padding: 100px 30px;
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
-            background: rgba(255, 182, 39, 0.05);
-            border-radius: 20px;
-            margin: 50px;
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+        .contact-info {
+            background-color: var(--paper);
+            border: 1px solid var(--warm-brown);
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
         }
         
-        .social-links a {
-            color: var(--honey);
-            font-size: 24px;
-            transition: all 0.3s ease;
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 15px;
         }
         
-        .social-links a:hover {
+        .contact-info a {
             color: var(--gold);
-            transform: translateY(-3px);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
         }
         
         /* Footer */
         footer {
+            background-color: var(--dark-brown);
+            color: var(--cream);
             text-align: center;
-            padding: 50px;
-            color: rgba(255, 255, 255, 0.6);
-            border-top: 1px solid rgba(255, 182, 39, 0.1);
+            padding: 40px 30px;
+            font-size: 14px;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
+            .nav-container {
+                padding: 0 20px;
             }
             
             .nav-links {
                 display: none;
             }
             
-            section {
+            .hero-content {
+                padding: 0 20px;
+            }
+            
+            .album-section, .about, .contact {
                 padding: 60px 20px;
             }
             
-            .about, .contact {
-                margin: 20px;
+            .album-announcement {
+                padding: 40px 25px;
             }
             
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .album-art-placeholder {
+                width: 150px;
+                height: 150px;
             }
             
-            .about-visual {
-                height: 250px;
+            .album-art-placeholder span {
+                font-size: 36px;
             }
-        }
-        
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="hex-bg">
-        <div class="hex"></div>
-        <div class="hex"></div>
-        <div class="hex"></div>
-        <div class="hex"></div>
-        <div class="hex"></div>
-        <div class="hex"></div>
-    </div>
-    
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-container">
             <a href="#" class="logo">HONEY TRAP</a>
             <ul class="nav-links">
+                <li><a href="#album">Album</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#music">Music</a></li>
-                <li><a href="#merch">Merch</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -498,125 +335,56 @@
         <div class="hero-content">
             <h1 class="band-name">HONEY TRAP</h1>
             <h2 class="album-title">You Never Hear The Javelin That Kills You</h2>
-            <p class="hero-subtitle">Debut Album • Three-Piece Experimental Rock</p>
-            <a href="#music" class="cta-button">Listen Now</a>
+            <p class="hero-subtitle">New Album Coming Soon</p>
+            <a href="#album" class="cta-button">Learn More</a>
+        </div>
+    </section>
+    
+    <!-- Album Section -->
+    <section id="album" class="album-section">
+        <h2 class="section-title">New Release</h2>
+        <div class="album-announcement">
+            <div class="album-art-placeholder">
+                <span>♠</span>
+            </div>
+            <h3>You Never Hear The Javelin That Kills You</h3>
+            <p class="album-meta">Debut Album • Coming 2024</p>
+            <p class="album-description">
+                "A collection of songs exploring the unexpected moments that define us."
+            </p>
+            <a href="#contact" class="notify-button">Get Notified</a>
         </div>
     </section>
     
     <!-- About Section -->
-    <section id="about" class="about fade-in">
-        <h2 class="section-title">About The Hive</h2>
+    <section id="about" class="about">
         <div class="about-content">
+            <h2 class="section-title">About</h2>
             <div class="about-text">
-                <p>Honey Trap is a three-piece experimental rock band that creates sonic landscapes as intricate as a honeycomb and as sharp as a javelin's edge. Our debut album "You Never Hear The Javelin That Kills You" explores themes of unexpected beauty, hidden dangers, and the sweet poison of modern existence.</p>
-                
-                <p>Drawing inspiration from the collective intelligence of bees and the precision of ancient warfare, we craft music that buzzes with energy while striking with surgical accuracy. Each track is a hexagonal chamber in our sonic hive, filled with golden melodies and venomous truths.</p>
-                
-                <p>The album title reflects our philosophy: life's most profound moments often arrive unannounced, like a javelin cutting through silence or honey dripping from an unseen comb.</p>
-            </div>
-            <div class="about-visual">
-                <div class="bee-icon">🐝</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Music Section -->
-    <section id="music" class="fade-in">
-        <h2 class="section-title">Music</h2>
-        <div class="music-grid">
-            <div class="album-card">
-                <div class="album-art">
-                    <span>🎯</span>
-                </div>
-                <h3 class="album-title-card">You Never Hear The Javelin That Kills You</h3>
-                <p>Debut Album • 2024</p>
-                <p style="margin: 15px 0; color: rgba(255,255,255,0.7);">10 tracks of experimental rock that sting like honey and cut like steel.</p>
-                <a href="#" class="buy-button">Pre-Order</a>
-            </div>
-            
-            <div class="album-card">
-                <div class="album-art">
-                    <span>🍯</span>
-                </div>
-                <h3 class="album-title-card">Golden Poison EP</h3>
-                <p>Coming Soon • 2024</p>
-                <p style="margin: 15px 0; color: rgba(255,255,255,0.7);">B-sides and rarities from the hive sessions.</p>
-                <a href="#" class="buy-button">Notify Me</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Merch Section -->
-    <section id="merch" class="fade-in">
-        <h2 class="section-title">Hive Store</h2>
-        <div class="merch-grid">
-            <div class="merch-item">
-                <div class="merch-image">👕</div>
-                <h3 class="merch-title">Javelin T-Shirt</h3>
-                <div class="merch-price">£20</div>
-                <a href="#" class="buy-button">Buy Now</a>
-            </div>
-            
-            <div class="merch-item">
-                <div class="merch-image">🎵</div>
-                <h3 class="merch-title">Album Vinyl</h3>
-                <div class="merch-price">£25</div>
-                <a href="#" class="buy-button">Pre-Order</a>
-            </div>
-            
-            <div class="merch-item">
-                <div class="merch-image">🧢</div>
-                <h3 class="merch-title">Honey Trap Cap</h3>
-                <div class="merch-price">£15</div>
-                <a href="#" class="buy-button">Buy Now</a>
-            </div>
-            
-            <div class="merch-item">
-                <div class="merch-image">📀</div>
-                <h3 class="merch-title">Album CD</h3>
-                <div class="merch-price">£12</div>
-                <a href="#" class="buy-button">Pre-Order</a>
+                <p>Honey Trap is a three-piece experimental rock band. Our debut album explores themes of unexpected beauty and hidden truths through carefully crafted sonic landscapes.</p>
             </div>
         </div>
     </section>
     
     <!-- Contact Section -->
-    <section id="contact" class="contact fade-in">
-        <h2 class="section-title">Join The Swarm</h2>
-        <p style="font-size: 18px; margin-bottom: 20px;">Follow us for updates, tour dates, and exclusive content from the hive.</p>
-        
-        <div class="social-links">
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="Twitter">🐦</a>
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="YouTube">📹</a>
-            <a href="#" title="Spotify">🎵</a>
-            <a href="#" title="Bandcamp">🎧</a>
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <p>For booking inquiries:<br>
+            <a href="mailto:booking@honeytrap.band">booking@honeytrap.band</a></p>
+            
+            <p>For press inquiries:<br>
+            <a href="mailto:press@honeytrap.band">press@honeytrap.band</a></p>
         </div>
-        
-        <p style="margin-top: 30px;">
-            Booking: <a href="mailto:booking@honeytrap.band" style="color: var(--honey);">booking@honeytrap.band</a><br>
-            Press: <a href="mailto:press@honeytrap.band" style="color: var(--honey);">press@honeytrap.band</a>
-        </p>
     </section>
     
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Honey Trap. All rights reserved. Made with 🍯 and ⚡</p>
+        <p>&copy; 2024 Honey Trap. All rights reserved.</p>
     </footer>
     
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Smooth scrolling for navigation links
+        // Simple smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -629,79 +397,6 @@
                 }
             });
         });
-        
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Add hover effects to merch items
-        document.querySelectorAll('.merch-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-        
-        // Add click effects to buttons
-        document.querySelectorAll('.buy-button, .cta-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Create ripple effect
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s ease-out;
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-        
-        // Add ripple animation CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
