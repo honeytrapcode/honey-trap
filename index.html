@@ -277,7 +277,7 @@
             max-width: 500px;
             margin: 0 auto;
         }
-        
+
         .contact-info p {
             font-size: 18px;
             margin-bottom: 15px;
@@ -293,8 +293,40 @@
             text-decoration: underline;
         }
 
-        .support-button {
-            margin-top: 25px;
+        .contact-info form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info input[type="email"] {
+            padding: 12px;
+            border: 2px solid var(--warm-brown);
+            background-color: var(--paper);
+            color: var(--dark-brown);
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            width: 300px;
+        }
+
+        .contact-info button {
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .contact-info button:hover {
+            background-color: transparent;
+            color: var(--gold);
         }
         
         /* Footer */
@@ -426,11 +458,15 @@
     </section>
     
     <section id="contact" class="contact">
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title">Join the Trap</h2>
+        <p>Subscribe to keep informed of our album release and tour dates</p>
         <div class="contact-info">
-            <p>For all inquiries:<br>
+            <form id="subscribe-form">
+                <input type="email" id="email-input" placeholder="Enter your email" required>
+                <button type="submit" class="notify-button">Subscribe</button>
+            </form>
+            <p style="margin-top: 20px;">For all inquiries:<br>
             <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a></p>
-            <a href="https://www.paypal.com/paypalme/honeytrapsounds" target="_blank" class="notify-button">Support Us</a>
         </div>
     </section>
     
@@ -463,6 +499,23 @@
                     });
                 }
             });
+        });
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzDrHlPMbhjNlZakfePzB8Lfn27fSpc7lzo5tBoy-SVxufW-Aod3LzaieAx63b3kzlJ/exec';
+        const form = document.getElementById('subscribe-form');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value;
+            if (email) {
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        alert(`Thank you for subscribing with ${email}!`);
+                        emailInput.value = '';
+                    })
+                    .catch(error => console.error('Error!', error.message));
+            }
         });
     </script>
 </body>
