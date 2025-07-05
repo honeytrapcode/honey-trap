@@ -215,6 +215,30 @@
             background-color: transparent;
             color: var(--gold);
         }
+
+        /* Merch Section */
+        .merch-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .merch-item {
+            flex-basis: 300px;
+        }
+
+        .merch-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid var(--warm-brown);
+            box-shadow: 0 4px 20px rgba(60, 42, 30, 0.1);
+        }
+        
+        .merch-button {
+            margin-top: 40px;
+        }
         
         /* About Section */
         .about {
@@ -332,33 +356,35 @@
             .album-art-placeholder span {
                 font-size: 36px;
             }
+
+            .merch-button {
+                margin-top: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">HONEY TRAP</a>
             <ul class="nav-links">
                 <li><a href="#album">Album</a></li>
+                <li><a href="#merch">Merch</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
     
-    <!-- Hero Section -->
-<section class="hero">
-    <div class="hero-image">
-        <img src="assets/website2.png" alt="Honey Trap" class="background-image">
-        <div class="hero-overlay">
-            <h1 class="band-name">HONEY TRAP</h1>
+    <section class="hero">
+        <div class="hero-image">
+            <img src="assets/website2.png" alt="Honey Trap" class="background-image">
+            <div class="hero-overlay">
+                <h1 class="band-name">HONEY TRAP</h1>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
     
-    <!-- Album Section -->
     <section id="album" class="album-section">
         <h2 class="section-title">New Release</h2>
         <div class="album-announcement">
@@ -370,8 +396,20 @@
             <a href="#contact" class="notify-button">Get Notified</a>
         </div>
     </section>
+
+    <section id="merch" class="album-section">
+        <h2 class="section-title">Merchandise</h2>
+        <div class="merch-container">
+            <div class="merch-item">
+                <img src="assets/surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image">
+            </div>
+            <div class="merch-item">
+                <img src="assets/honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image">
+            </div>
+        </div>
+        <a href="https://honeytrapsounds.bandcamp.com/merch" target="_blank" class="notify-button merch-button">Order Here</a>
+    </section>
     
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="about-content">
             <h2 class="section-title">About</h2>
@@ -385,7 +423,6 @@
         </div>
     </section>
     
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2 class="section-title">Contact</h2>
         <div class="contact-info">
@@ -394,9 +431,8 @@
         </div>
     </section>
     
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Honey Trap. All rights reserved.</p>
+        <p>© 2025 Honey Trap. All rights reserved.</p>
         <div class="social-icons">
             <a href="https://instagram.com/honeytrapsounds" target="_blank" aria-label="Instagram" class="social-icon">
                 <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
