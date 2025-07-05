@@ -227,6 +227,7 @@
 
         .merch-item {
             flex-basis: 300px;
+            text-align: center;
         }
 
         .merch-image {
@@ -236,8 +237,8 @@
             box-shadow: 0 4px 20px rgba(60, 42, 30, 0.1);
         }
         
-        .merch-button {
-            margin-top: 40px;
+        .merch-item .notify-button {
+            margin-top: 20px;
         }
         
         /* About Section */
@@ -290,6 +291,10 @@
         
         .contact-info a:hover {
             text-decoration: underline;
+        }
+
+        .support-button {
+            margin-top: 25px;
         }
         
         /* Footer */
@@ -356,10 +361,6 @@
             .album-art-placeholder span {
                 font-size: 36px;
             }
-
-            .merch-button {
-                margin-top: 30px;
-            }
         }
     </style>
 </head>
@@ -401,13 +402,14 @@
         <h2 class="section-title">Merchandise</h2>
         <div class="merch-container">
             <div class="merch-item">
-                <img src="assets/surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image">
+                <img src="surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image">
+                <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank" class="notify-button">Order Surfer Tee</a>
             </div>
             <div class="merch-item">
-                <img src="assets/honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image">
+                <img src="honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image">
+                <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank" class="notify-button">Order Honey Tee</a>
             </div>
         </div>
-        <a href="https://honeytrapsounds.bandcamp.com/merch" target="_blank" class="notify-button merch-button">Order Here</a>
     </section>
     
     <section id="about" class="about">
@@ -428,6 +430,7 @@
         <div class="contact-info">
             <p>For all inquiries:<br>
             <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a></p>
+            <a href="https://www.paypal.com/paypalme/honeytrapsounds" target="_blank" class="notify-button support-button">Support Us</a>
         </div>
     </section>
     
